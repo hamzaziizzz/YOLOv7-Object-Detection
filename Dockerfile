@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.10.8-slim-buster
+FROM nvcr.io/nvidia/pytorch:22.06-py3
 
 WORKDIR /flask-yolo
 
 COPY requirements.txt requirements.txt
 RUN pip3 install torch --no-cache-dir
-RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt --no-cache-dir
 
 # For setting time zone
 #https://grigorkh.medium.com/fix-tzdata-hangs-docker-image-build-cdb52cc3360d
